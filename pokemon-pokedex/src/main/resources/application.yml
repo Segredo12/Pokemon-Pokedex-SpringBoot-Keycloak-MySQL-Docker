@@ -1,0 +1,61 @@
+# Spring configurations
+spring:
+  # Application
+  application:
+    name: pokemon-pokedex
+  # Liquibase
+  liquibase:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    change-log: classpath:/db/changelog/db.changelog-master.json
+    drop-first: false
+    enabled: true
+  # SQL
+  sql:
+    init:
+      mode: always
+  # JPA
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        "[format_sql]": true
+    show-sql: false
+  # Datasource
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/pokedex-system?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    username: pokesystem
+    password: admin
+  # Security
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/Pokemon%20-%20Pokedex
+  # MVC
+  mvc:
+    problemdetails:
+      enabled: true
+
+# Server Configurations
+server:
+  port: 8081
+  max-http-request-header-size: 10MB
+  forward-headers-strategy: framework
+
+# Spring Doc
+springdoc:
+  swagger-ui:
+    operationsSorter: alpha
+    disable-swagger-default-url: true
+    tagsSorter: alpha
+  version: '0.0.1'
+  auth:
+    authorization-url: http://localhost:8080/realms/Pokemon%20-%20Pokedex/protocol/openid-connect/auth
+    token-url: http://localhost:8080/realms/Pokemon%20-%20Pokedex/protocol/openid-connect/token
+
+# Logging
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
