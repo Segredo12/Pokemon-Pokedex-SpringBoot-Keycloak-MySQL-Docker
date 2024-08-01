@@ -36,4 +36,4 @@ build/
 keycloak-and-mysql/.docker
 
 ### Pokemon-Pokedex Spring Boot ###
-pokemon-pokedex/target
+pokemon-pokedex-api/target

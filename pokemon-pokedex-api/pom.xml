@@ -10,9 +10,9 @@
 		<relativePath />
 	</parent>
 	<groupId>com.segredo</groupId>
-	<artifactId>pokemon-pokedex</artifactId>
+	<artifactId>pokemon-pokedex-api</artifactId>
 	<version>0.0.1</version>
-	<name>pokemon-pokedex</name>
+	<name>pokemon-pokedex-api</name>
 	<description>This is a side project of a Pokemon Pokedex API.</description>
 
 	<properties>
