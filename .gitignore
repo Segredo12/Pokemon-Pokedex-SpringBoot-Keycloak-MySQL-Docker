@@ -34,3 +34,6 @@ build/
 
 ### Keycloak Folder ###
 keycloak-and-mysql/.docker
+
+### Pokemon-Pokedex Spring Boot ###
+pokemon-pokedex/target
