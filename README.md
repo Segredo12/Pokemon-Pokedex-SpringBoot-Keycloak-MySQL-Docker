@@ -7,11 +7,11 @@ The Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker project is an advanced simu
 
 ## Table of Contents
 
-- Installation
-- Usage
-- Endpoints
-- Authors
-- License
+- [Installation](https://github.com/Segredo12/Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker#installation)
+- [Usage](https://github.com/Segredo12/Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker#usage)
+- [Endpoints](https://github.com/Segredo12/Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker#endpoints)
+- [Authors](https://github.com/Segredo12/Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker#authors)
+- [License](https://github.com/Segredo12/Pokemon-Pokedex-SpringBoot-Keycloak-MySQL-Docker#license)
 
 ## Installation
 
