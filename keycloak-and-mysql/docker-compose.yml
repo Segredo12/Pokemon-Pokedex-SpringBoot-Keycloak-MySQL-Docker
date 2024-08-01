@@ -1,0 +1,47 @@
+services:
+  pokedex-db:
+    user: root
+    image: mysql:8.3.0
+    container_name: pokedex-db
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    networks:
+      - pokedex-system
+    environment:
+      # Base user
+      MYSQL_USER: 'admin'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: '123456'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - .docker/db/mysql:/var/lib/mysql
+
+  keycloak:
+    container_name: keycloak
+    image: keycloak/keycloak:25.0.0-0
+    environment:
+      - KEYCLOAK_ADMIN=root
+      - KEYCLOAK_ADMIN_PASSWORD=root
+      - KC_DB=mysql
+      - KC_DB_USERNAME=root
+      - KC_DB_PASSWORD=root
+      - KC_DB_URL_HOST=pokedex-db
+      - KC_DB_URL_PORT=3306
+      - KC_DB_SCHEMA=keycloak
+    ports:
+      - 8080:8080
+    networks:
+     - pokedex-system
+    command: start-dev
+    depends_on:
+      - pokedex-db
+
+# Create Network first.
+# docker network create pokedex-system
+networks:
+  pokedex-system:
+    name: pokedex-system
+    external: true
+
