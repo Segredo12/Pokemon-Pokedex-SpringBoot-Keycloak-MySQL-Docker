@@ -8,7 +8,10 @@ import com.segredo.pokemon_pokedex.entities.base.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -26,5 +29,9 @@ public class TrainerEntity extends BaseEntity {
 
   @Column(name = "auth_id", nullable = true)
   private String authId;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @NotNull
+  private ProfessorEntity  professor;
 
 }
