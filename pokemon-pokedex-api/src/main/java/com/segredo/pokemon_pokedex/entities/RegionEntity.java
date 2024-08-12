@@ -1,5 +1,8 @@
 package com.segredo.pokemon_pokedex.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 import org.hibernate.jdbc.Expectation;
@@ -8,6 +11,8 @@ import com.segredo.pokemon_pokedex.entities.base.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,4 +31,7 @@ public class RegionEntity extends BaseEntity {
 
   @Column(name = "name", nullable = false)
   private String name;
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "region")
+  private List<PokemonEntity> pokemons = new ArrayList<>();
 }
